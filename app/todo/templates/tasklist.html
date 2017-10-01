@@ -1,0 +1,10 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Ryan's Todo.txt{% endblock %}
+
+{% block content %}
+{% for task in tasks %}
+    <li>{{ task }}</li>
+{% endfor %}
+{% endblock %}
+
