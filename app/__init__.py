@@ -6,24 +6,28 @@ from flask_bootstrap import Bootstrap
 from flask_mail import Mail
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
-from config import config
 import sys
 import os
+from config import config
 
 sys.path.insert(0, os.path.abspath(os.getcwd()))
 sys.path.insert(0, os.path.abspath(os.pardir))
-sys.path.insert(0, os.path.expanduser('~/Dropbox/dev/ryanserver'))
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 
-def create_app(config_name='development'):
-    app = Flask(__name__)
+def configure_app(app):
+    config_name = os.getenv('FLASK_CONFIGURATION', 'development')
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
+    return app
+
+def create_app(config_name='development'):
+    app = Flask(__name__)
 
     bootstrap.init_app(app)
     db.init_app(app)
+    app = configure_app(app)
 
     # attach routes and custom error pages here
 

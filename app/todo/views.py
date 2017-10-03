@@ -5,10 +5,16 @@ import os
 from .. import db
 
 
+#def load_todotxt():
+#    with open(app.config['TODOTXT_'] ''~/Dropbox/notes/todo.txt'), mode='r') as infile:
+#        tasks = sorted([task.strip() for task in infile.readlines()])
+#    return tasks
+
 def load_todotxt():
-    with open(os.path.expanduser('~/Dropbox/notes/todo.txt'), mode='r') as infile:
+    with open(app.config['TODOTXT_FILE_PATH']) as infile:
         tasks = sorted([task.strip() for task in infile.readlines()])
     return tasks
+
 
 @todo.route('/todo/index.html', methods=['GET', 'POST'])
 @todo.route('/todo', methods=['GET', 'POST'])

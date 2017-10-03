@@ -1,5 +1,5 @@
 # Config files
-config.py
+app/config.py
 # Sublime Text files
 *sublime*
 # Virtual environment
