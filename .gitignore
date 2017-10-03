@@ -1,3 +1,7 @@
+#Dropbox
+.bundle/
+*cache*
+.dropbox/
 # Config files
 app/config.py
 # Sublime Text files
