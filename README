@@ -1,0 +1,30 @@
+# Flask-template
+
+A basic Flask app starter template using an application factory and blueprints.
+
+## Prerequisites: you must have at least Python 3.6 and virtualenv installed.
+
+(1) Clone this repository and enter its directory
+
+```
+git clone git@github.com:RyanMcCarl/flask-template.git
+cd flask-template
+```
+
+(2) Create a virtual environment, activate it, and install dependencies:
+
+```
+virtualenv venv --python=python3.6
+source activate venv/bin/activate
+pip install -r requirements.txt
+```
+
+(3) Run the server from the base directory `flask-template`:
+
+```
+python run.py runserver
+```
+
+# Acknowledgments:
+
+Many concepts and code in this basic app come from Miguel Grinberg's excellent "Flask Web Development". I also highly recommend the YouTube videos on Flask by PrettyPrinted.

@@ -1,4 +1,35 @@
-{% extends "bootstrap/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="title" content="Ryan's Tasks">
+        <meta name="author" content="Ryan McCarl">
+        <title>Ryan's Tasks</title>
+        <link rel="icon" href="img/favicon.ico">
+        {% include "includes/bootstrap-stylesheets.html" %}
+        {% include "includes/custom-stylesheets.html" %}
+    </head>
+    <body>
+                {% block navbar %}{% endblock %}
 
-{% block title %}$section{% endblock %}
-{% block content %}<h1>Content section</h1>{% endblock %}
+            <!-- Begin page content -->
+
+                {% block content %}{% endblock %}
+
+                {% block sidebar %}{% endblock %}
+
+            <!-- End page content -->
+            <footer class="footer">
+                <div class="container">
+                {% block footer %}{% endblock %}
+                </div>
+            </footer>
+        </div>
+    <!-- Scripts -->
+    {% include "includes/bootstrap-scripts.html" %}
+    {% include "includes/custom-scripts.html" %}
+    </body>
+
+</html>

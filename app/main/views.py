@@ -1,8 +1,6 @@
 from datetime import datetime
 from flask import render_template, session, redirect, url_for, make_response
 from . import main
-from .. import db
-
 
 @main.route('/index.html', methods=['GET', 'POST'])
 @main.route('/', methods=['GET', 'POST'])

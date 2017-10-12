@@ -4,12 +4,15 @@
 import os
 import pytest
 import sys
-
-sys.path.insert(0, os.path.abspath(os.getcwd()))
-sys.path.insert(0, os.path.abspath(os.pardir))
-sys.path.insert(0, os.path.expanduser('~/Dropbox/dev/ryanserver'))
-
+from flask import Flask, render_template, session, redirect, url_for, make_response
 from app import create_app
+
+def test_addition():
+    with pytest.raises(AssertionError(" error")):
+        1 == 2
+
+class Flask(Flask):
+    testing = True
 
 @pytest.fixture
 def app():
@@ -17,18 +20,20 @@ def app():
     app.testing = True
     return app
 
+@pytest.fixture
+def client(app):
+    return app.test_client()
+
 # Views
+@pytest.fixture
+def test_fake_route_raises_exception(client):
+    assert client.get(url_for('fakeroute')).status_code == 404
 
-@pytest.mark.usefixtures('test_client_class')
-class ViewTests:
+@pytest.fixture
+def test_main(client):
+   assert client.get(url_for('main')).status_code == 200
 
-    def test_main(client):
-        assert client.get(url_for('main')).status_code == 200
+@pytest.fixture
+def test_todo(client):
+   assert client.get(url_for('todo')).status_code == 200
 
-    def test_todo(client):
-        assert client.get(url_for('todo')).status_code == 200
-
-
-#if __name__ == '__main__':
-#    app = app()
-#    client = app.test_client()
