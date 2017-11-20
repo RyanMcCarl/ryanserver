@@ -7,8 +7,6 @@ from flask import Flask, render_template
 import jinja2
 from . import errors
 global app
-#sys.path.insert(0, os.path.abspath(os.getcwd()))
-#sys.path.insert(0, os.path.abspath(os.pardir))
 
 class MyApp(Flask):
     def __init__(self):
